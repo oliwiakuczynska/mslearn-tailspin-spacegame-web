@@ -57,13 +57,14 @@ namespace TailSpin.SpaceGame.Web
         )
         {
             var result = _items
-                .Where(queryPredicate) // filter
-                .OrderByDescending(orderDescendingPredicate) // sort
-                .Skip(page * pageSize) // find page
-                .Take(pageSize - 1); // take items
+            .Where(queryPredicate) // filter
+            .OrderByDescending(orderDescendingPredicate) // sort
+            .Skip(page * pageSize) // find page
+            .Take(pageSize); // take items
 
             return Task<IEnumerable<T>>.FromResult(result);
         }
+
 
         /// <summary>
         /// Retrieves the number of items that match the given query predicate.
